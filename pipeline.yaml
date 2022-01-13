@@ -4,13 +4,13 @@ resources:
   icon: github
   type: git
   source:
-    uri: ((my-ci_git_repo))
-    branch: ((my-ci_branch))
+    uri: https://github.com/ketinenis/my-ci.git
+    branch: main
 - name: image
   type: registry-image
   icon: docker
   source:
-    repository: my-ci
+    repository: my-ci/image
     username: ((docker_username))
     password: ((docker_password))
     tag: latest
@@ -24,7 +24,7 @@ jobs:
   #     - file: my-ci/pipeline.yml
   #       set_pipeline: my-ci
        
-  - name: build-image
+  - name: build-and-push
     serial: true
     plan:
       - get: my-ci
@@ -33,7 +33,7 @@ jobs:
       #   params: { pre: build }
       - task: build-task-image
         privileged: true
-        file: my-ci/build_image.yaml
+        file: build_image.yaml
       - put: image
         params:
           image: image/image.tar

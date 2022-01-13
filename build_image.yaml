@@ -7,9 +7,9 @@ image_resource:
 
 inputs:
   - name: my-ci
-    path: .
-    
 
+
+  
 outputs:
   - name: image
 
