@@ -4,7 +4,7 @@ resources:
   icon: github
   type: git
   source:
-    uri: ((my-ci_git_repo_ssh_uri))
+    uri: ((my-ci_git_repo))
     branch: ((my-ci_branch))
 - name: image
   type: registry-image

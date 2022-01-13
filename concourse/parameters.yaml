@@ -1,4 +1,4 @@
 my-ci_branch: main
-my-ci_git_repo_ssh_uri: git@github.com:ketinenis/my-ci.git 
+my-ci_git_repo: https://github.com/ketinenis/my-ci.git 
 docker_username: ketineni8885
 docker_password: Ronit@008
