@@ -1,0 +1,30 @@
+---
+platform: linux
+
+image_resource:
+  type: registry-image
+  source: { repository: concourse/oci-build-task }
+
+inputs:
+  - name: source-code
+    path: .
+  - name: version
+
+outputs:
+  - name: image
+
+params:
+  DOCKERFILE:
+  CONTEXT: .
+
+run:
+  path: sh
+  args:
+    - -exc
+    - |
+      set -eux
+
+      build
+
+      echo $(cat ./.git/short_ref) >> image/additional-tags
+      echo $(cat version/version) >> image/additional-tags
