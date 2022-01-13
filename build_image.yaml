@@ -6,9 +6,9 @@ image_resource:
   source: { repository: concourse/oci-build-task }
 
 inputs:
-  - name: source-code
+  - name: my-ci
     path: .
-  - name: version
+    
 
 outputs:
   - name: image
@@ -18,13 +18,7 @@ params:
   CONTEXT: .
 
 run:
-  path: sh
-  args:
-    - -exc
-    - |
-      set -eux
+  path: build
 
-      build
-
-      echo $(cat ./.git/short_ref) >> image/additional-tags
-      echo $(cat version/version) >> image/additional-tags
+      # echo $(cat ./.git/short_ref) >> image/additional-tags
+      # echo $(cat version/version) >> image/additional-tags

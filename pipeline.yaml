@@ -17,24 +17,23 @@ resources:
 
 
 jobs:
-  - name: update-pipeline
-    plan:
-      - get: my-ci
-        trigger: true
-      - file: my-ci/pipeline.yml
-        set_pipeline: my-ci
+  # - name: update-pipeline
+  #   plan:
+  #     - get: my-ci
+  #       trigger: true
+  #     - file: my-ci/pipeline.yml
+  #       set_pipeline: my-ci
        
   - name: build-image
     serial: true
     plan:
       - get: my-ci
         trigger: true
-      - put: version
-        params: { pre: build }
+      # - put: version
+      #   params: { pre: build }
       - task: build-task-image
         privileged: true
         file: my-ci/build_image.yaml
       - put: image
         params:
-          image: image/image
-          additional_tags: image/additional-tags
+          image: image/image.tar
