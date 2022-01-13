@@ -4,8 +4,8 @@ resources:
   icon: github
   type: git
   source:
-    uri: https://github.com/ketineni27/my-ci
-    branch: master
+    uri: ((my-ci_git_repo_ssh_uri))
+    branch: ((my-ci_branch))
 - name: image
   type: registry-image
   icon: docker
