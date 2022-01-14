@@ -25,14 +25,14 @@ jobs:
   #       set_pipeline: my-ci
        
   - name: build-and-push
-    serial: true
+  
     plan:
       - get: my-ci
         trigger: true
       # - put: version
-        params: { pre: build }
+        # params: { pre: build }
       - task: build-task-image
-        privileged: true
+        
         file: build_image.yaml
       - put: image
         params:

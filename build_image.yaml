@@ -15,7 +15,7 @@ outputs:
 
 params:
   DOCKERFILE:
-  CONTEXT: .
+  CONTEXT: my-ci/.
 
 run:
   path: build
