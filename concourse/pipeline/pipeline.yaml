@@ -33,7 +33,7 @@ jobs:
         # params: { pre: build }
       - task: build-task-image
         
-        file: build_image.yaml
+        file: my-ci/concourse/tasks/build_image.yaml
       - put: image
         params:
           image: image/image.tar
