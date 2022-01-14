@@ -1,10 +1,10 @@
 ---
 resources:
-- name: git
+- name: my-ci
   icon: github
   type: git
   source:
-    uri: https://github.com/ketinenis/my-ci.git
+    uri: git@github.com:ketinenis/my-ci.git
     branch: main
 - name: image
   type: registry-image
@@ -30,7 +30,7 @@ jobs:
       - get: my-ci
         trigger: true
       # - put: version
-      #   params: { pre: build }
+        params: { pre: build }
       - task: build-task-image
         privileged: true
         file: build_image.yaml
